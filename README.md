@@ -4,13 +4,13 @@ Secret files repo encrypted with gpg.
 
 # usage
 
-With key file (drops trailing newlines):
+With key file:
 
 `./lock.sh "$(<tmp/SECRETS_KEY)"`
 
 `./unlock.sh "$(<tmp/SECRETS_KEY)"`
 
-With github secrets (keeps trailing newlines) in worklow yaml:
+With github secrets in worklow yaml:
 
 `./lock.sh "${{ secrets.SECRETS_KEY }}"`
 
@@ -21,8 +21,6 @@ With passphrase:
 `./lock.sh "passphrase"`
 
 `./unlock.sh "passphrase"`
-
-Recommend delete trailing newlines from SECRETS_KEY.
 
 # pull
 
@@ -35,6 +33,10 @@ When you pull changes to `encrypted/` use unlock script to update `decrypted/`.
 When you update anything in `decrypted/` use lock script to update `encrypted/` then push.
 
 `./lock.sh passphrase`
+
+# notes
+
+Drops trailing newlines from passphrase.
 
 # license
 
